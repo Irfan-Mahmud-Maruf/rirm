@@ -1,8 +1,13 @@
 import React from 'react'
+import Body from '../Body/Body'
+import Sidebar from '../Sidebar/Sidebar'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div className="flex">
+        <Sidebar />
+        <Body />
+    </div>
   )
 }
 
