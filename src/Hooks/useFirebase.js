@@ -1,6 +1,11 @@
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import FirebaseInitialize from "../Firebase/Firebase.init";
+
+
+
+
 FirebaseInitialize()
 const useFirebase = () => {
     const [user, setUser] = useState({});
@@ -9,12 +14,17 @@ const useFirebase = () => {
     const [password, setPassword] = useState('');
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
+
+    let navigate = useNavigate();
+
     //google sing in
     const googleSingIn = () => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 const user = result.user;
                 setUser(user)
+                navigate("/home");
+                setError('')
             })
             .catch(error => {
                 const errorMessage = error.message;
@@ -27,6 +37,8 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result.user)
+                navigate("/home");
+                setError('')
             })
             .catch(error => {
                 setError(error.message)
@@ -40,6 +52,8 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result.user)
+                navigate("/home");
+                setError('')
             })
             .catch(error => {
                 setError(error.message)
