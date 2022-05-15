@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Content from './Content'
+import Header from './Header'
+import Modal from './Modal'
+
+
 
 const Body = () => {
+  const [state, setState] = useState(false)
+  const openModal =() =>{
+    setState (true)
+}
   return (
-    <div className="h-screen flex-1 p-7">
-    <h1 className="text-2xl font-semibold ">Home Page</h1>
+    <div className="h-screen flex-1">
+    <Header/>
+    <Content openModal={openModal}/>
+    <Modal state={state} setState={setState}/>
+
   </div>
   )
 }
