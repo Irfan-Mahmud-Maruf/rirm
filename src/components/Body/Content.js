@@ -3,7 +3,7 @@ import { BsEnvelope, BsFileEarmarkText, BsFillInboxFill, BsTagFill, BsTrash } fr
 import { GoPrimitiveDot } from "react-icons/go";
 import dataService from '../../Firebase/useDb';
 
-const Content = ({openModal, getMailId}) => {
+const Content = ({openModal}) => {
     const [mails, setMails] = useState([]);
   useEffect(() => {
     getMails();
