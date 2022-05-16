@@ -1,13 +1,8 @@
-import db from '../Firebase/dbConfig'
 import {
-    collection,
-    getDocs,
-    getDoc,
-    addDoc,
-    updateDoc,
-    deleteDoc,
-    doc,
-  } from "firebase/firestore";
+  addDoc, collection, deleteDoc,
+  doc, getDoc, getDocs, updateDoc
+} from "firebase/firestore";
+import db from '../Firebase/dbConfig';
   
   const mailCollectionRef = collection(db, "inbox");
   class  dataService {

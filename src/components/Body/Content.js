@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BsFillInboxFill, BsTagFill } from "react-icons/bs";
+import { BsEnvelope, BsFileEarmarkText, BsFillInboxFill, BsTagFill, BsTrash } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
 import dataService from '../../Firebase/useDb';
 
@@ -35,27 +35,27 @@ const Content = ({openModal, getMailId}) => {
                             <p className='text-sm text-gray-500  ml-2'>Inbox</p>
                         </div>
                         <div>
-                            <p className='text-xs bg-orange-500 text-white font-semibold rounded px-2 '>16</p>
+                            <p className='text-xs bg-orange-500 text-white font-semibold rounded px-2 '>{mails.length}</p>
                         </div>
                     </li>
                     <li className='flex justify-between items-center border-b py-1'>
                         <div className='flex justify-center items-center'>
-                            <BsFillInboxFill className='text-sm text-gray-500'/>
-                            <p className='text-sm text-gray-500  ml-2'>Inbox</p>
+                            <BsEnvelope className='text-sm text-gray-500'/>
+                            <p className='text-sm text-gray-500  ml-2'>Send mail</p>
                         </div>
                         
                     </li>
                     <li className='flex justify-between items-center border-b py-1'>
                         <div className='flex justify-center items-center'>
-                            <BsFillInboxFill className='text-sm text-gray-500'/>
-                            <p className='text-sm text-gray-500  ml-2'>Inbox</p>
+                            <GoPrimitiveDot className='text-sm text-gray-500'/>
+                            <p className='text-sm text-gray-500  ml-2'>Important</p>
                         </div>
                        
                     </li>
                     <li className='flex justify-between items-center border-b py-1'>
                         <div className='flex justify-center items-center'>
-                            <BsFillInboxFill className='text-sm text-gray-500'/>
-                            <p className='text-sm text-gray-500  ml-2'>Inbox</p>
+                            <BsFileEarmarkText className='text-sm text-gray-500'/>
+                            <p className='text-sm text-gray-500  ml-2'>Draft</p>
                         </div>
                         <div>
                             <p className='text-xs bg-red-500 text-white font-semibold rounded px-2 '>2</p>
@@ -63,8 +63,8 @@ const Content = ({openModal, getMailId}) => {
                     </li>
                     <li className='flex justify-between items-center border-b py-1'>
                         <div className='flex justify-center items-center'>
-                            <BsFillInboxFill className='text-sm text-gray-500'/>
-                            <p className='text-sm text-gray-500  ml-2'>Inbox</p>
+                            <BsTrash className='text-sm text-gray-500'/>
+                            <p className='text-sm text-gray-500  ml-2'>Trush</p>
                         </div>
                         
                     </li>
@@ -78,31 +78,31 @@ const Content = ({openModal, getMailId}) => {
                     <li className='flex justify-between items-center pb-1'>
                         <div className='flex justify-center items-center'>
                             <GoPrimitiveDot className='text-green-500'/>
-                            <p className='text-sm text-gray-500  ml-2'>Inbox</p>
+                            <p className='text-sm text-gray-500  ml-2'>Work</p>
                         </div>
                     </li>
                     <li className='flex justify-between items-center pb-1'>
                         <div className='flex justify-center items-center'>
-                            <GoPrimitiveDot className='text-green-500'/>
-                            <p className='text-sm text-gray-500  ml-2'>Inbox</p>
+                            <GoPrimitiveDot className='text-red-500'/>
+                            <p className='text-sm text-gray-500  ml-2'>Documents</p>
                         </div>
                     </li>
                     <li className='flex justify-between items-center pb-1'>
                         <div className='flex justify-center items-center'>
-                            <GoPrimitiveDot className='text-green-500'/>
-                            <p className='text-sm text-gray-500  ml-2'>Inbox</p>
+                            <GoPrimitiveDot className='text-blue-500'/>
+                            <p className='text-sm text-gray-500  ml-2'>Social</p>
                         </div>
                     </li>
                     <li className='flex justify-between items-center pb-1'>
                         <div className='flex justify-center items-center'>
-                            <GoPrimitiveDot className='text-green-500'/>
-                            <p className='text-sm text-gray-500  ml-2'>Inbox</p>
+                            <GoPrimitiveDot className='text-yellow-500'/>
+                            <p className='text-sm text-gray-500  ml-2'>Advertising</p>
                         </div>
                     </li>
                     <li className='flex justify-between items-center pb-1'>
                         <div className='flex justify-center items-center'>
-                            <GoPrimitiveDot className='text-green-500'/>
-                            <p className='text-sm text-gray-500  ml-2'>Inbox</p>
+                            <GoPrimitiveDot className='text-orange-500'/>
+                            <p className='text-sm text-gray-500  ml-2'>Clients</p>
                         </div>
                     </li>
                     
@@ -119,37 +119,37 @@ const Content = ({openModal, getMailId}) => {
                     </div>
                     <div className='flex justify-between items-center bg-white rounded px-2 py-1 m-1'>
                         <BsTagFill className='text-xs text-gray-500'/>
-                        <p className='text-xs text-gray-500  ml-1'>Family</p>
+                        <p className='text-xs text-gray-500  ml-1'>Work</p>
                     </div>
                     <div className='flex justify-between items-center bg-white rounded px-2 py-1 m-1'>
                         <BsTagFill className='text-xs text-gray-500'/>
-                        <p className='text-xs text-gray-500  ml-1'>Family</p>
-                    </div>
-                    
-                </div>
-                <div className='flex'>
-                    <div className='flex justify-between items-center bg-white rounded px-2 py-1 m-1'>
-                        <BsTagFill className='text-xs text-gray-500'/>
-                        <p className='text-xs text-gray-500  ml-1'>Family</p>
-                    </div>
-                    <div className='flex justify-between items-center bg-white rounded px-2 py-1 m-1'>
-                        <BsTagFill className='text-xs text-gray-500'/>
-                        <p className='text-xs text-gray-500  ml-1'>Family</p>
-                    </div>
-                    <div className='flex justify-between items-center bg-white rounded px-2 py-1 m-1'>
-                        <BsTagFill className='text-xs text-gray-500'/>
-                        <p className='text-xs text-gray-500  ml-1'>Family</p>
+                        <p className='text-xs text-gray-500  ml-1'>Home</p>
                     </div>
                     
                 </div>
                 <div className='flex'>
                     <div className='flex justify-between items-center bg-white rounded px-2 py-1 m-1'>
                         <BsTagFill className='text-xs text-gray-500'/>
-                        <p className='text-xs text-gray-500  ml-1'>Family</p>
+                        <p className='text-xs text-gray-500  ml-1'>Children</p>
                     </div>
                     <div className='flex justify-between items-center bg-white rounded px-2 py-1 m-1'>
                         <BsTagFill className='text-xs text-gray-500'/>
-                        <p className='text-xs text-gray-500  ml-1'>Family</p>
+                        <p className='text-xs text-gray-500  ml-1'>Holidays</p>
+                    </div>
+                    <div className='flex justify-between items-center bg-white rounded px-2 py-1 m-1'>
+                        <BsTagFill className='text-xs text-gray-500'/>
+                        <p className='text-xs text-gray-500  ml-1'>Music</p>
+                    </div>
+                    
+                </div>
+                <div className='flex'>
+                    <div className='flex justify-between items-center bg-white rounded px-2 py-1 m-1'>
+                        <BsTagFill className='text-xs text-gray-500'/>
+                        <p className='text-xs text-gray-500  ml-1'>Photography</p>
+                    </div>
+                    <div className='flex justify-between items-center bg-white rounded px-2 py-1 m-1'>
+                        <BsTagFill className='text-xs text-gray-500'/>
+                        <p className='text-xs text-gray-500  ml-1'>Film</p>
                     </div>
                 </div>
             </div>
@@ -164,8 +164,8 @@ const Content = ({openModal, getMailId}) => {
 
       <table>
         <thead>
-          <tr>
-            <th className='px-9 border-r text-center'>#</th>
+          <tr className='bg-white rounded'>
+            <th className='px-6 border-r text-center'>#</th>
             <th className='px-9 border-r text-center'>Mail</th>
             <th className='px-9 border-r text-center'>CC</th>
             <th className='px-9 border-r text-center'>Subject</th>
@@ -177,7 +177,7 @@ const Content = ({openModal, getMailId}) => {
           {mails.map((doc, index) => {
             return (
               <tr key={doc.id}>
-                <td className='px-9 border-r text-sm'>{index + 1}</td>
+                <td className='px-6 border-r text-sm'>{index + 1}</td>
                 <td className='px-9 border-r text-sm'>{doc.mail}</td>
                 <td className='px-9 border-r text-sm'>{doc.cc}</td>
                 <td className='px-9 border-r text-sm'>{doc.subject}</td>

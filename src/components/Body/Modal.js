@@ -23,6 +23,10 @@ const Modal = ({state,setState,id,setMailId }) => {
           } catch (err) {
             console.log(err.message)
           }
+          setMail('')
+          setCc('')
+          setSubject('')
+          setMessage('')
           setState(false)
     }
     const onDraft =() =>{
@@ -42,7 +46,7 @@ const Modal = ({state,setState,id,setMailId }) => {
                     </div> 
                     <div className="mb-6 flex justify-center items-center">
                         <label className="block mb-2 text-sm font-medium text-dark mr-3">CC</label>
-                        <input type="email" id="cc" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="john.doe@company.com" required onChange={(e) => setCc(e.target.value)}/>
+                        <input type="email" id="cc" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="john.doe@company.com" onChange={(e) => setCc(e.target.value)}/>
                     </div> 
                     <div className="mb-6 ">
                         <label className="block mb-2 text-sm font-medium text-dark mr-3">Subject</label>
