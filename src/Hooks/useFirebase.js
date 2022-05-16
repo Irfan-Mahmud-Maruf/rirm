@@ -78,10 +78,12 @@ const useFirebase = () => {
         });
         return () => unSubscribe;
     }, []);
-    const singOut = () => {
+
+    const logOut = () => {
         signOut(auth)
             .then(() => {
                 setUser('')
+                navigate("/");
             })
             .catch((error) => {
                 setError(error.message)
@@ -94,7 +96,7 @@ const useFirebase = () => {
         user,
         googleSingIn,
         error,
-        singOut,
+        logOut,
         getEmail,
         getPassword,
         singInWithEmail,

@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsFillInboxFill, BsTagFill } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
+import dataService from '../../Firebase/useDb';
 
-const Content = ({openModal}) => {
+const Content = ({openModal, getMailId}) => {
+    const [mails, setMails] = useState([]);
+  useEffect(() => {
+    getMails();
+  }, []);
+
+  const getMails = async () => {
+    const data = await dataService.getAllMails();
+    console.log(data.docs);
+    setMails(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  };
+  const deleteHandler = async (id) => {
+    await dataService.deleteMail(id);
+    getMails();
+  };
     
   return (
     <div className='bg-gray-100 h-full flex pt-4 '>
@@ -139,7 +154,47 @@ const Content = ({openModal}) => {
                 </div>
             </div>
         </div>
-        <div className='bg-white h-full'>
+        <div className='h-full'>
+        <div className="mb-2">
+        
+        <button className="w-full p-2.5 flex-1 text-white bg-green-400 rounded-md outline-none ring-offset-2 ring-indigo-600 focus:ring-2" onClick={getMails}
+        >Refresh List
+        </button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th className='px-9 border-r text-center'>#</th>
+            <th className='px-9 border-r text-center'>Mail</th>
+            <th className='px-9 border-r text-center'>CC</th>
+            <th className='px-9 border-r text-center'>Subject</th>
+            <th className='px-9 border-r text-center'>Message</th>
+            <th className='px-9'>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {mails.map((doc, index) => {
+            return (
+              <tr key={doc.id}>
+                <td className='px-9 border-r text-sm'>{index + 1}</td>
+                <td className='px-9 border-r text-sm'>{doc.mail}</td>
+                <td className='px-9 border-r text-sm'>{doc.cc}</td>
+                <td className='px-9 border-r text-sm'>{doc.subject}</td>
+                <td className='px-9 border-r text-sm'>{doc.message}</td>
+                <td className='px-9'>
+                <button className="w-full mt-2 p-2.5 flex-1 text-white bg-green-400 rounded-md outline-none ring-offset-2 ring-indigo-600 focus:ring-2" onClick={(e) => deleteHandler(doc.id)}
+                >
+                    Delete
+                </button>
+                 
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+            
         </div>
 
     </div>

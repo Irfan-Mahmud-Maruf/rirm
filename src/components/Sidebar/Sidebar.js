@@ -14,7 +14,6 @@ import useAuth from '../../Hooks/useAuth';
 const Sidebar = () => {
     const [open, setOpen] = useState(true);
     const {user} = useAuth()
-    console.log(user)
   
   return (
     <div
